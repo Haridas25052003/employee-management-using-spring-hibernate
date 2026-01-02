@@ -13,4 +13,6 @@ public interface EmployeeDao {
 	Employee findEmployeeById(int id);
 	
 	List<Employee> findAllEmployee();
+	
+	void updateEmployee(Employee e);
 }

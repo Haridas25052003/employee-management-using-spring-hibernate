@@ -36,6 +36,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> findAllEmployee() {
 		return ed.findAllEmployee();
 	}
+
+	@Override
+	public void updateEmployee(Employee e) {
+		// TODO Auto-generated method stub
+		ed.updateEmployee(e);
+		
+		
+	}
 	
 	
 }

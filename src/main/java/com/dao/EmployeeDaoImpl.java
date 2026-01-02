@@ -34,6 +34,13 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		return sf.getCurrentSession().createCriteria(Employee.class)
 				.list();
 	}
+
+	@Override
+	public void updateEmployee(Employee e) {
+		// TODO Auto-generated method stub
+		sf.getCurrentSession().saveOrUpdate(e);
+		
+	}
 	
 	
 
