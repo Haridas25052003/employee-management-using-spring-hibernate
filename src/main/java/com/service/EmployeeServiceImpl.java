@@ -20,4 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return ed.insertEmployee(e);
 	}
 
+	public int deleteEmployeeById(int id) {
+		
+	}
 }
