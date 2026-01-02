@@ -39,10 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void updateEmployee(Employee e) {
-		// TODO Auto-generated method stub
-		ed.updateEmployee(e);
-		
-		
+		ed.updateEmployee(e);	
 	}
 	
 	

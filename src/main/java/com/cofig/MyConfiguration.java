@@ -2,9 +2,12 @@ package com.cofig;
 
 import java.util.Properties;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -13,7 +16,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages= {"com.dao","com.service"})
+@PropertySource(value= {"classpath:application.properties"})
 public class MyConfiguration {
+	
+	@Autowired
+	private Environment e;
 	
 	@Bean
 	public HibernateTransactionManager h1() {
@@ -35,19 +42,19 @@ public class MyConfiguration {
 	private DriverManagerDataSource d1() {
 		 
 		DriverManagerDataSource d=new DriverManagerDataSource();
-		d.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		d.setUrl("jdbc:mysql://localhost:3306/spdb4");
-		d.setUsername("root");
-		d.setPassword("root123");
+		d.setDriverClassName(e.getRequiredProperty("a"));
+		d.setUrl(e.getRequiredProperty("b"));
+		d.setUsername(e.getRequiredProperty("c"));
+		d.setPassword(e.getRequiredProperty("d"));
 		return d;
 	}
 	
 	private Properties p1() {
 	    Properties p = new Properties();
-	    p.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-	    p.setProperty("hibernate.hbm2ddl.auto", "update");
-	    p.setProperty("hibernate.show_sql", "true");
-	    p.setProperty("hibernate.format_sql", "true");
+	    p.setProperty("hibernate.dialect", e.getRequiredProperty("e"));
+	    p.setProperty("hibernate.hbm2ddl.auto", e.getRequiredProperty("f"));
+	    p.setProperty("hibernate.show_sql", e.getRequiredProperty("g"));
+	    p.setProperty("hibernate.format_sql", e.getRequiredProperty("h"));
 	    return p;
 	}
 
