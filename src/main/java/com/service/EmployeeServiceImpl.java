@@ -21,6 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	public int deleteEmployeeById(int id) {
+		return ed.deleteEmployeeById(id);
 		
 	}
 }
