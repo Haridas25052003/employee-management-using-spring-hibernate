@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import com.model.Employee;
 
 public interface EmployeeDao {
@@ -7,4 +9,8 @@ public interface EmployeeDao {
 	int insertEmployee(Employee e);
 	
 	int deleteEmployeeById(int id);
+	
+	Employee findEmployeeById(int id);
+	
+	List<Employee> findAllEmployee();
 }

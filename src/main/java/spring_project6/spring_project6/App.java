@@ -1,5 +1,6 @@
 package spring_project6.spring_project6;
 
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.context.ApplicationContext;
@@ -27,11 +28,19 @@ public class App
         Random r=new Random();
     
         Employee e=new Employee();
-        e.setName("haridas");
-        e.setDesignation("ui/ux");
-        e.setCompany("tcs");
-        e.setSalary(45990.0);
-        System.out.println(es.insertEmployee(e));
+//        e.setName("haridas");
+//        e.setDesignation("ui/ux");
+//        e.setCompany("tcs");
+//        e.setSalary(45990.0);
+//        System.out.println(es.insertEmployee(e));
         
+        //System.out.println(es.deleteEmployeeById(1));
+        
+        //mployee e=es.findEmployeeById(2);
+        //System.out.println(e);
+        
+        List<Employee> list=es.findAllEmployee();
+        for(Employee e1:list)
+        	System.out.println(e1);
     }
 }
